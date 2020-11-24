@@ -12,13 +12,17 @@ const routes = [
   },
   {
     path: '/tiendas',
-    name: 'Tiendas',
-  
-    component: () => import( '../views/Tiendas.vue')
+    name: 'Tiendas',    
+    component: () => import( '../views/Tiendas.vue'),
+    meta: {
+      requiresAuth: true
+    }
+
   },
   {
     path: '/crear/tiendas',
     name: 'CrearTienda',
+    
 
     component: () => import( '../views/CrearTienda.vue')
   },

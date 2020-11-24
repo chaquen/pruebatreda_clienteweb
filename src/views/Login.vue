@@ -1,11 +1,8 @@
 <template>
 <div class="container">
-    <h4>Formulario para registro</h4>
+    <h4>Login</h4>
     <br>
     <b-form class="col-6">
-        <b-form-group>
-            <b-form-input v-model="nombre" placeholder="nombre"></b-form-input>
-        </b-form-group>
         <b-form-group>
             <b-form-input v-model="correo" placeholder="correo"></b-form-input>
         </b-form-group>
@@ -38,16 +35,16 @@ export default {
     methods: {
         crearUser() {
             let currentObj = this;
-            this.axios.post(`http://localhost:84/api/register`, {
+            this.axios.post(`http://localhost:84/api/login`, {
                 name: this.nombre,
                 email: this.correo,
                 password: this.clave
             }).then(function (response) {
                 console.log(response);
                 if(response.data.success){
-                    sessionStorage.setItem('token',response.data.token);
-                    currentObj.msn = response.mensaje;
-                    currentObj.$router.push({ name: 'Login' });
+                    sessionStorage.setItem('token',response.data.token);                    
+                    sessionStorage.setItem('name',response.data.name);                    
+                    currentObj.$router.push({ name: 'Home' });
                 }else{
                     currentObj.msn = '';
                 }

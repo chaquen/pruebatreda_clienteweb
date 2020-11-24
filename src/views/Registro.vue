@@ -9,8 +9,7 @@
 import NavUser from '../components/NavUser.vue'
 import FormRegister from '../components/FormRegister.vue'
 
-export
-default {
+export default {
     name: 'About',
     components: {
         NavUser,
